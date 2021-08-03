@@ -1,0 +1,7 @@
+pytelegrambotapi==3.8.1
+requests==2.26.0
+emoji==1.4.1
+python-dotenv==0.18.0
+peewee==3.14.4
+flask==2.0.1
+psycopg2==2.9.1

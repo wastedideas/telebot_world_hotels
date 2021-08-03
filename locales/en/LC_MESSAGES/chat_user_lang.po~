@@ -1,0 +1,134 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-27 11:52+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: main.py:66
+#, python-brace-format
+msgid ""
+"Hi, {username}! ✋\n"
+"I am ready to select hotels according to your request!\n"
+"For command help, use */help*\n"
+"To select a language, use the command */en* or */ru*"
+msgstr ""
+
+#: main.py:102
+msgid "Language changed successfully!"
+msgstr ""
+
+#: main.py:121
+msgid ""
+"*/help* — help with commands\n"
+"*/lowprice* — listing of the cheapest hotels in the city\n"
+"*/highprice* — conclusion of the most expensive hotels in the city\n"
+"*/bestdeal* — conclusion of hotels with the closest location from the center"
+msgstr ""
+
+#: main.py:163
+msgid "Enter the country to search for a hotel:"
+msgstr ""
+
+#: main.py:187
+msgid ""
+"Incorrect name.\n"
+"Enter the country name in Latin."
+msgstr ""
+
+#: main.py:214
+msgid "Enter the city to search for a hotel:"
+msgstr ""
+
+#: main.py:240
+msgid "Checking the correctness of the city entry... ⚡"
+msgstr ""
+
+#: main.py:252
+msgid "Enter the number of hotels you want to see (no more than 25):"
+msgstr ""
+
+#: main.py:276
+msgid ""
+"Invalid format.\n"
+"Please enter a quantity not exceeding 25."
+msgstr ""
+
+#: main.py:307
+msgid "Enter the search start date (DD.MM.YYYY):"
+msgstr ""
+
+#: main.py:334
+msgid "Invalid date format."
+msgstr ""
+
+#: main.py:338
+msgid ""
+"Date does not exist or is not in the correct format.\n"
+"Date format: DD.MM.YYYY.\n"
+"Enter search start date:"
+msgstr ""
+
+#: main.py:344
+msgid ""
+"Date does not exist or is not in the correct format.\n"
+"Date format: DD.MM.YYYY..\n"
+"The end date of the search must be later than the start date.\n"
+"Enter the end date of the search:"
+msgstr ""
+
+#: main.py:376
+msgid "Enter the end date of the search (DD.MM.YYYY):"
+msgstr ""
+
+#: main.py:423
+msgid ""
+"Enter search price range in dollars\n"
+"(For example: \"50-100\"):"
+msgstr ""
+
+#: main.py:451
+msgid ""
+"Incorrect price.\n"
+"Please, enter price range\n"
+"in dollars again:\n"
+msgstr ""
+
+#: main.py:497
+msgid "Searching for hotels. 🔍 It may take a few seconds ..."
+msgstr ""
+
+#: main.py:519
+msgid "No hotels found for your request."
+msgstr ""
+
+#: hotels_api_utils.py:159 hotels_api_utils.py:161
+msgid "Not specified."
+msgstr ""
+
+#: hotels_api_utils.py:160
+msgid "No information."
+msgstr ""
+
+#: hotels_api_utils.py:179
+#, python-brace-format
+msgid ""
+"{city_name} {country} {flag_for_tg}\n"
+"{list_item_emoji} Hotel name: {hotel_name}\n"
+"{list_item_emoji} Hotel address: {hotel_address}\n"
+"{list_item_emoji} Hotel rating: {hotel_rating}\n"
+"{list_item_emoji} Distance to the city center: {hotel_landmark}.\n"
+"{list_item_emoji} Cost of living: {hotel_price}"
+msgstr ""
