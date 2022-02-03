@@ -1,5 +1,5 @@
 # Telegram bot for Hotels API
-## @hotels_search_engine_bot (is active)
+## [@hotels_search_engine_bot](https://t.me/hotels_search_engine_bot) (is active)
 ### Stack: Pytelegrambotapi, flask, gettext, peewee ORM, PostgreSQL
 
 Для начала работы необходимо выполнить установку необходимых для работы бота пакетов:
