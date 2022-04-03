@@ -54,7 +54,19 @@ def start_message(message: Any):
     keyboard.row('/help')
     keyboard.row('/en', '/ru')
 
-    chat_user = UserModel.get_or_create(chat_id=message.chat.id)
+    chat_id = message.chat.id
+    user_nickname = message.chat.username
+
+    try:
+        chat_user = UserModel.get(
+            (UserModel.chat_id == chat_id) &
+            (UserModel.user_nickname == user_nickname)
+        )
+    except UserModel.DoesNotExist:
+        chat_user = UserModel.create(
+            chat_id=chat_id,
+            user_nickname=user_nickname,
+        )
 
     if not chat_user[1]:
         _ = gettext.translation(
@@ -232,6 +244,9 @@ def country_answer(message: Any, _: gettext, chat_user: UserModel):
     :param chat_user: UserModel
     :return:
     """
+    if message.text == 'rmh':
+        cancel_registered_handlers(message)
+        return
     chat_user.country = message.text
 
     city_text = _('Enter the city to search for a hotel:')
@@ -258,6 +273,9 @@ def city_answer(message: Any, _: gettext, chat_user: UserModel):
     :param chat_user: UserModel
     :return:
     """
+    if message.text == 'rmh':
+        cancel_registered_handlers(message)
+        return
     bot.send_message(
         message.chat.id,
         _('Checking the correctness of the city entry... ⚡'),
@@ -321,6 +339,9 @@ def number_of_hotels_answer(message: Any, _: gettext, chat_user: UserModel):
     :param chat_user: UserModel
     :return:
     """
+    if message.text == 'rmh':
+        cancel_registered_handlers(message)
+        return
     try:
         if not 0 < int(message.text) <= 25:
             incorrect_hotels_number(message, _, chat_user)
@@ -391,6 +412,9 @@ def check_in_answer(message: Any, _: gettext, chat_user: UserModel):
     :param chat_user: UserModel
     :return:
     """
+    if message.text == 'rmh':
+        cancel_registered_handlers(message)
+        return
     if not is_date_valid(user_date=message.text):
         incorrect_date(message, check_in_answer, _, chat_user)
     else:
@@ -423,6 +447,9 @@ def check_out_answer(message: Any, _: gettext, chat_user: UserModel):
     :param chat_user: UserModel
     :return:
     """
+    if message.text == 'rmh':
+        cancel_registered_handlers(message)
+        return
     check_in_date = chat_user.check_in
 
     check_out_date = message.text
@@ -498,6 +525,9 @@ def price_range_answer(message: Any, _: gettext, chat_user: UserModel):
     :param chat_user: UserModel
     :return:
     """
+    if message.text == 'rmh':
+        cancel_registered_handlers(message)
+        return
     get_prices_from_message = price_check(message.text)
     if not get_prices_from_message:
         incorrect_price(message, _, chat_user)
@@ -548,6 +578,12 @@ def search_hotels_result(message: Any, _: gettext, chat_user: UserModel):
                 i_gen_item,
                 disable_web_page_preview=False,
             )
+        bot.next_step_backend.handlers[message.chat.id] = []
+
+
+def cancel_registered_handlers(msg: Any):
+    bot.send_message(chat_id=msg.chat.id, text='Canceled 🚫')
+    bot.next_step_backend.handlers = {}
 
 
 if __name__ == "__main__":

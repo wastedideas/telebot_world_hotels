@@ -2,7 +2,7 @@ import os
 from peewee import *
 from playhouse.db_url import connect
 
-db = connect(os.environ.get('DATABASE_URL'), 'sqlite:///chat_users.db')
+db = connect(os.environ.get('DATABASE_URL', 'sqlite:///chat_users.db'))
 
 
 class UserModel(Model):
@@ -14,6 +14,7 @@ class UserModel(Model):
     )
     chat_id = IntegerField(null=False)
     language = CharField(max_length=5, choices=LANGUAGE, default='ru_RU')
+    user_nickname = CharField(max_length=150, null=True)
     sort_order = CharField(max_length=30, null=True)
     country = CharField(max_length=100, null=True)
     city = CharField(max_length=10000, null=True)
